@@ -1,0 +1,108 @@
+<!-- users.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Users</title>
+  <link rel="stylesheet" href="css/bcss/bootstrap.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/fontawesome-free-5.15.4-web/css/all.min.css">
+  <script src="js/fontjs/all.min.js"></script>
+</head>
+<body>
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+      <div>
+        <a class="navbar-brand text-dark col-lg-3 me-0" href="#"><h3 class="float-md-start mb-0"><span><img src="img/Funmine.svg" style="height: 60px; width: 60px;" alt=""></span >FMA</h3></a>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+          <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
+          <a class="nav-link fw-bold py-1 px-0" href="#">Features</a>
+          <a class="nav-link fw-bold py-1 px-0" href="#">Contact</a>
+        </nav>
+      </div>
+    </header>
+  
+    
+     
+    </div>
+  </div>
+  <h1>User Table</h1>
+  <table class="table table-bordered">
+      <thead>
+          <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% users.forEach(user => { %>
+              <tr>
+                  <td><%= user.id %></td>
+                  <td><%= user.name %></td>
+                  <td><%= user.email %></td>
+              </tr>
+          <% }); %>
+      </tbody>
+  </table>
+
+  <h1>Product Table</h1>
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>description</th>
+      <th>price</th>
+      <th>sale_price</th>
+      <th>quantity</th>
+      <th>image</th>
+      <th>category</th>
+      <th>type</th>
+  </tr>
+</thead>
+<tbody>
+  <% products.forEach(product => { %>
+      <tr>
+          <td><%= product.id %></td>
+          <td><%= product.name %></td>
+          <td><%= product.description %></td>
+          <td><%= product.price %></td>
+          <td><%= product.sale_price %></td>
+          <td><%= product.quantity %></td>
+          <td><img style="width: 100px;" src="img/products/<%= product.image %>" alt=""></td>
+          <td><%= product.category %></td>
+          <td><%= product.type %></td>
+      </tr>
+  <% }); %>
+  </table>
+
+  <h1>Order Table</h1>
+  <table class="table table-bordered">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>status</th>
+      <th>city</th>
+      <th>address</th>
+      <th>phone</th>
+      <th>date</th>
+  </tr>
+</thead>
+<tbody>
+  <% orders.forEach(order => { %>
+      <tr>
+          <td><%= order.id %></td>
+          <td><%= order.name %></td>
+          <td><%= order.email %></td>
+          <td><%= order.status %></td>
+          <td><%= order.city %></td>
+          <td><%= order.address %></td>
+          <td><%= order.phone %></td>
+          <td><%= order.date %></td>
+
+      </tr>
+  <% }); %>
+  </table>
+</body>
+</html>

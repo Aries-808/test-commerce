@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bcss/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fontawesome-free-5.15.4-web/css/all.min.css">
+    <script src="js/fontjs/all.min.js"></script>
+    
+    <title>About Us</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light rounded" aria-label="Thirteenth navbar example">
+            <div class="container-fluid">
+              <a class="navbar-brand col-lg-3 me-0" href="#"><span><img src="./images/Funmine.svg" style="height: 60px; width: 60px;" alt=""></span>Funminedadon</a>
+
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+      
+              <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+                
+                <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-link active" href="services.html">Services</a>
+                      </li>        
+                </ul>
+                <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                  <button class="btn btn-primary">Button</button>
+                </div>
+              </div>
+            </div>
+        </nav>
+    </div>
+    <marquee class="container w-100" behavior="" direction="">
+      <div class="d-flex gap-2">
+        <div class="card-body border rounded" >Hello</div>
+        <div class="card-body border rounded" >Hello</div>
+        <div class="card-body border rounded" >Hello</div>
+        <div class="card-body border rounded" >Hello</div>
+        <div class="card-body border rounded" >Hello</div>
+      </div>
+      
+    </marquee>
+    <div class="mx-auto container">
+      <form action="/place_order" method="post" id="checkout-form">
+        <div class="form-group">
+          <label for="">Name</label>
+          <input type="text" name="name" class="form-control" placeholder="enter name" id="checkout-name">
+        </div>
+
+        <div class="form-group">
+          <label for="">Email</label>
+          <input type="email" name="email" class="form-control" placeholder="enter email" id="checkout-email">
+        </div>
+
+        <div class="form-group">
+          <label for="">Phone</label>
+          <input type="tel" name="phone" class="form-control" placeholder="enter phone number" id="checkout-phone">
+        </div>
+
+        <div class="form-group">
+          <label for="">City</label>
+          <input type="text" name="city" class="form-control" placeholder="enter city" id="checkout-city">
+        </div>
+
+        <div class="form-group">
+          <label for="">Address</label>
+          <input type="text" name="address" class="form-control" placeholder="enter address" id="checkout-address">
+        </div>
+
+        <div class="form-group">
+          <p>Total amount: <%= total %></p>
+          <input type="submit" class="btn btn-primary" value="checkout" name="checkout-btn" id="checkout-btn">
+        </div>
+      </form>
+    </div>
+    <script src="./css/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

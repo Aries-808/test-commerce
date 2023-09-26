@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bcss/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/fontawesome-free-5.15.4-web/css/all.min.css">
+    <script src="js/fontjs/all.min.js"></script>
+    <style>
+      #hero-bg{
+        background: url(img/backgrounds/supermarket.jpeg) no-repeat;
+        background-size: cover;
+        height: 100vh;
+        background-attachment: fixed;
+        background-position: center;
+      }
+    </style>
+    <title>Products</title>
+</head>
+<body>
+  <div class="cover-container-fluid" id="hero-bg">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="mb-auto">
+        <div>
+          <a class="navbar-brand text-dark col-lg-3 me-0" href="#"><h3 class="float-md-start mb-0"><span><img src="img/Funmine.svg" style="height: 60px; width: 60px;" alt=""></span >FMA</h3></a>
+          <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link fw-bold py-1 px-0 active" aria-current="page" href="#">Home</a>
+            <a class="nav-link fw-bold py-1 px-0" href="#">Features</a>
+            <a class="nav-link fw-bold py-1 px-0" href="#">Contact</a>
+          </nav>
+        </div>
+      </header>
+    
+      <main class="px-3">
+        <h1>Welcome</h1>
+        <p class="lead">Best prices you can trust always</p>
+        <p class="lead">
+          <a href="#" class="btn btn-lg btn-dark fw-bold border-dark bg-dark">Learn more</a>
+        </p>
+      </main>
+    
+      <div class="mt-auto text-white-50">
+       
+      </div>
+    </div>
+  </div>
+ 
+
+  <div class="container px-4 py-5" id="icon-grid">
+      <h2 class="pb-2 text-center border-bottom">What We Do</h2>
+  
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 py-5">
+        <div class="col d-flex align-items-start">
+          <i class="fa fa-truck text-body-secondary flex-shrink-0 me-3" style="font-size: 1.75em;"></i>
+          <div>
+            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Quick Deliveries</h3>
+            <p>Get your deliveries within two weeks if you're within lagos.</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <i class="fa fa-exchange-alt text-body-secondary flex-shrink-0 me-3" style="font-size: 1.75em;"></i>
+          <div>
+            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">7-day Return Policy</h3>
+            <p>You get a full refund and can return any product as long as you file a return order within 7 days</p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <i class="fa fa-plane text-body-secondary flex-shrink-0 me-3" style="font-size: 1.75em;"></i>
+          <div>
+            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Travel</h3>
+            <p>We also offer travel consultations. Click <a href="travel.html">here</a> to learn more </p>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <i class="fa fa-handshake text-body-secondary flex-shrink-0 me-3" style="font-size: 1.75em;"></i>
+          <div>
+            <h3 class="fw-bold mb-0 fs-4 text-body-emphasis">Media Consultations</h3>
+            <p>We offer consultations and other media-related services.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   <!-- Product Grid -->
+    <div class="container mt-5">
+      <h2 class="pb-2  text-center">Products</h2>
+        <div class="row">
+          <% result.forEach(function(item) { %>
+            <div class="col-md-3 col-6 my-3">
+                <div class="card">
+                    <img src="img/products/<%= item.image %>" alt="Product Image" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= item.name %></h5>
+                        
+                        <% if(item.sale_price){ %>
+                        
+                        <p class="card-text text-muted text-decoration-line-through">$<%= item.price %></p>
+                        <p class="card-text">$<%= item.sale_price %></p>
+                       
+                        <%} else { %>
+                          <p class="card-text">$<%= item.price %></p>
+                        <% } %>
+
+                        <form action="/add_to_cart" method="post">
+                          <input type="hidden" name="id" value="<%= item.id %>">
+                          <input type="hidden" name="name" value="<%= item.name %>">
+                          <input type="hidden" name="price" value="<%= item.price %>">
+                          <input type="hidden" name="description" value="<%= item.description %>">
+                          <input type="hidden" name="sale_price" value="<%= item.sale_price %>">
+                          <input type="hidden" name="quantity" value="1">
+                          <input type="hidden" name="image" value="<%= item.image %>">
+                          <input type="submit" class="btn btn-primary" value="Add to Cart"></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+          <%}) %>
+                        
+        </div>
+    <script src="./css/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

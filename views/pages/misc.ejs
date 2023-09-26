@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misc</title>
+    <link rel="stylesheet" href="css/bcss/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome-free-5.15.4-web/css/all.min.css">
+    <style>
+        body{
+            max-width: 100vw;
+            min-height: 100vh;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+        }
+
+        .modal{
+            width:50%;
+        }
+        
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }   
+    </style>
+</head>
+<body class="d-flex align-items-center justify-content-center">
+    
+       
+          <!-- Trigger/Open The Modal -->
+        <button id="myBtn" class="btn btn-outline-info fa fa-plus"></button>
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form action="/new_product">
+                    <div class="form-group">
+                      <label for="name">Product Name</label>
+                      <input type="email" class="form-control" placeholder="Enter email" id="email">
+                    </div>
+                    <div class="form-group">
+                      <label for="pwd">Password:</label>
+                      <input type="password" class="form-control" placeholder="Enter password" id="pwd">
+                    </div>
+                    <div class="form-group form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox"> Remember me
+                      </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form> 
+            </div>
+
+        </div>
+
+        <form action="/single" method="post">
+            <button class="btn btn-primary" type="submit"></button>
+        </form>
+    
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+    </script>
+</body>
+</html>

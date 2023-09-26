@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      .image{
+          width:20%;
+      }
+
+      .image img{
+        width: 100%;
+      }
+
+      .shopping-cart {
+        height: auto;
+        margin: 80px auto;
+        background: #FFFFFF;
+        box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+      }
+      .title {
+        height: 60px;
+        border-bottom: 1px solid #E1E8EE;
+        padding: 20px 30px;
+        color: #5E6977;
+        font-size: 18px;
+        font-weight: 400;
+      }
+      
+      .item {
+        padding: 20px 30px;
+        height: auto;
+        display: flex;
+      }
+      
+      .item:nth-child(3) {
+        border-top:  1px solid #E1E8EE;
+        border-bottom:  1px solid #E1E8EE;
+      }
+      .buttons {
+        position: relative;
+        padding-top: 30px;
+        margin-right: 60px;
+      }
+      .delete-btn,
+      .like-btn {
+        display: inline-block;
+        Cursor: pointer;
+      }
+      .delete-btn {
+        width: 18px;
+        height: 17px;
+        background: url(&amp;quot;delete-icn.svg&amp;quot;) no-repeat center;
+      }
+      
+      .like-btn {
+        position: absolute;
+        top: 9px;
+        left: 15px;
+        background: url('twitter-heart.png');
+        width: 60px;
+        height: 60px;
+        background-size: 2900%;
+        background-repeat: no-repeat;
+      }
+      .buttons {
+        position: relative;
+        padding-top: 30px;
+        margin-right: 60px;
+      }
+      .delete-btn,
+      .like-btn {
+        display: inline-block;
+        Cursor: pointer;
+      }
+      .delete-btn {
+        width: 18px;
+        height: 17px;
+        background: url(&amp;quot;delete-icn.svg&amp;quot;) no-repeat center;
+      }
+      
+      .like-btn {
+        position: absolute;
+        top: 9px;
+        left: 15px;
+        background: url('twitter-heart.png');
+        width: 60px;
+        height: 60px;
+        background-size: 2900%;
+        background-repeat: no-repeat;
+      }
+      .is-active {
+        animation-name: animate;
+        animation-duration: .8s;
+        animation-iteration-count: 1;
+        animation-timing-function: steps(28);
+        animation-fill-mode: forwards;
+      }
+      
+      @keyframes animate {
+        0%   { background-position: left;  }
+        50%  { background-position: right; }
+        100% { background-position: right; }
+      }
+     
+      
+
+      .description {
+        padding-top: 10px;
+        margin-right: 60px;
+        width: auto;
+      }
+      
+      .description span {
+        display: block;
+        font-size: 14px;
+        color: #43484D;
+        font-weight: 400;
+      }
+      
+      .description span:first-child {
+        margin-bottom: 5px;
+      }
+      .description span:last-child {
+        font-weight: 300;
+        margin-top: 8px;
+        color: #86939E;
+      }
+      .quantity {
+        padding-top: 20px;
+        margin-right: 60px;
+      }
+      .quantity input {
+        -webkit-appearance: none;
+        border: none;
+        text-align: center;
+        width: 32px;
+        font-size: 16px;
+        color: #43484D;
+        font-weight: 300;
+      }
+      
+      button[class*=btn] {
+        width: 30px;
+        height: 30px;
+        background-color: #E1E8EE;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+      }
+      .minus-btn img {
+        margin-bottom: 3px;
+      }
+      .plus-btn img {
+        margin-top: 2px;
+      }
+      
+      button:focus,
+      input:focus {
+        outline:0;
+      }
+      .total-price {
+        width: 83px;
+        padding-top: 27px;
+        text-align: center;
+        font-size: 16px;
+        color: #43484D;
+        font-weight: 300;
+      }
+      @media (max-width: 800px) {
+        .shopping-cart {
+          width: 100%;
+          height: auto;
+          overflow: hidden;
+        }
+        .item {
+          height: auto;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .image{
+          width: 80%;
+        }
+        .image img {
+          width: 100%;
+        }
+        
+        .quantity, 
+        .form,
+        .description {
+          width: 100%;
+          text-align: center;
+          margin: 6px 0;
+        }
+        .buttons {
+          margin-right: 20px;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="css/fontawesome-free-5.15.4-web/css/all.css">
+    <link rel="stylesheet" href="css/bcss/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light rounded" aria-label="Thirteenth navbar example">
+            <div class="container-fluid">
+              <a class="navbar-brand col-lg-3 me-0" href="#"><span><img src="img/Funmine.svg" style="height: 60px; width: 60px;" alt=""></span>Funminedadon</a>
+              
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample11" aria-controls="navbarsExample11" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+      
+              <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+                
+                <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact Us</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/products">Products</a>
+                      </li> 
+                      <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                      </li>        
+                </ul>
+                <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                  <button class="delete-btn"><i class="fa fa-shopping-cart"></i></button>
+                </div>
+              </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="shopping-cart container border">
+      <!-- Title -->
+      <div class="title">
+        Shopping Bag
+      </div>
+      <% cart.forEach(function(item) { %>
+      <!-- Product #1 -->
+      <div class="item">
+        <form method="post" action="remove_product" class="buttons">
+          <input type="hidden" name="id" value="<%= item.id %>">
+          <button class="delete-btn"><i class="fa fa-trash"></i></button>
+        </form>
+     
+        <div class="image border rounded">
+          <img src="img/products/<%= item.image %>" alt="" />
+        </div>
+     
+        <div class="description m-3 d-flex flex-column align-items-center justify-content-center" style="">
+          <p class="my-0"><%= item.name %></p>
+          <p class="text-secondary my-0"><%= item.description %></p>
+        </div>
+     
+        <form method="post" action="/edit_product_quantity" class="quantity d-flex align-items-center justify-content-center">
+          <input type="hidden" name="id" value="<%= item.id %>" /> 
+          <input class="minus-btn text-center" type="submit" value="-" name="decrease_product_quantity">
+          <input type="text" name="quantity" value="<%= item.quantity %>" />
+          <input class="plus-btn text-center" type="submit" value="+" name="increase_product_quantity"/>
+          
+
+        </form>
+        
+        
+       <div class="price d-flex align-items-center justify-content-center">
+        <% if(item.sale_price){ %>
+          <span class="total-price  d-flex align-items-center justify-content-center">$ <%= item.sale_price * item.quantity %></span>
+        <% } else { %>
+          <span class="total-price d-flex align-items-center justify-content-center">$ <%= item.price * item.quantity %></span>
+        <% } %>
+       </div>
+        
+      </div>
+      <% }) %>
+      <div class="total-price d-flex justify-content-center" style="width: 100%;"><p>Total : $<%= total %></p></div>
+      <form method="get" action="/checkout" >
+        <input type="submit" class="btn btn-primary" value="Checkout" name=""/>
+      </form>
+    </div>
+    
+    <script src="./css/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
